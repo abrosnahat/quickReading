@@ -47,7 +47,7 @@ background-color: rgba(255, 255, 255, .4);
   margin-top: 40px;
   margin-bottom: 30px;
   background: rgba(255, 255, 255, .4);
-    width: 600px;
+    width: 400px;
     -webkit-appearance: none;
     &:focus {
         outline: none;
@@ -103,12 +103,12 @@ background-color: rgba(255, 255, 255, .4);
 .range-span {
   position: relative;
   display: block;
-  width: 70px;
+  width: 400px;
   height: 70px;
   background: transparent;
   text-align: center;
   font-weight: bold;
-  padding-top: 9px;
+  padding-top: 11px;
   box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, .4);
   margin-top: 20px;
@@ -118,7 +118,7 @@ background-color: rgba(255, 255, 255, .4);
   font-style: normal;
   font-weight: normal;
   line-height: normal;
-  font-size: 36px;
+  font-size: 32px;
 }
 
 .buttons {
@@ -185,6 +185,10 @@ background-color: rgba(255, 255, 255, .4);
 
 .button:hover {
   background: rgba(255, 255, 255, .2);
+}
+
+.button:active {
+  transform: scale(.95);
 }
 
 .hide {

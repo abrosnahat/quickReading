@@ -3,8 +3,7 @@ import cn from 'classnames';
 
 import './App.scss';
 
-// const text = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30'];
-let text = [];
+let text = ["Привет!", "Если", "скопируешь", "и", "вставишь", "сюда", "текст,", "то", "обретешь", "способность", "быстро", "читать", ":)"];
 let i = 0;
 
 class App extends React.Component {
@@ -74,17 +73,20 @@ class App extends React.Component {
       hide: this.state.hide 
     });
 
+    const buttonsMargin = this.state.hide ? {marginTop: '497px'} : null;
+    const placeholder = `Привет! Если скопируешь и вставишь сюда текст, то обретешь способность быстро читать :)`;
+
     return (
-      <div>
+      <>
           <h1 className="word">
             {
               this.state.data
             }
           </h1>
-          <textarea onChange={this.textareaText} className={textareaClass} />
-          <span className={rangeSpanClass}>{this.state.speed}</span>
-          <input type="range" className={rangeClass} onChange={this.updateSpeed} onChangeComplete={this.updateSpeed} defaultValue="250" min="100" max="500" />
-          <div className="buttons">
+          <textarea onChange={this.textareaText} className={textareaClass} placeholder={placeholder} />
+          <span className={rangeSpanClass}>{(1000 / this.state.speed).toFixed(2)}  с/сек</span>
+          <input type="range" className={rangeClass} onChange={this.updateSpeed} defaultValue={250} min={100} max={500} />
+          <div className="buttons" style={buttonsMargin}>
             {!this.state.hide ? (
               <button className={"button"} onClick={this.start}>Старт</button>
             ) : (
@@ -92,7 +94,7 @@ class App extends React.Component {
             )}
             <button className="button" onClick={this.restart}>Рестарт</button>
           </div>
-      </div>
+      </>
     )
   }
 }
