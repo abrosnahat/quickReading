@@ -3,14 +3,11 @@ import cn from 'classnames';
 
 import './App.scss';
 
-let text = ["Привет!", "Если", "скопируешь", "и", "вставишь", "сюда", "текст,", "то", "обретешь", "способность", "быстро", "читать", ":)"];
+let text = ["Привет!", "Если", "скопируешь", "и", "вставишь", "сюда", "текст,", "то", "обретешь", "способность", "быстро", "читать", "😊"];
 let i = 0;
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { data: 'Вставьте текст', hide: false, speed: 250 };
-  }
+  state = { data: 'Вставьте текст', hide: false, speed: 250 };
 
   textareaText = (e) => text = e.target.value.split(' ');
 
@@ -74,26 +71,22 @@ class App extends React.Component {
     });
 
     const buttonsMargin = this.state.hide ? {marginTop: '497px'} : null;
-    const placeholder = `Привет! Если скопируешь и вставишь сюда текст, то обретешь способность быстро читать :)`;
+    const placeholder = `Привет! Если скопируешь и вставишь сюда текст, то обретешь способность быстро читать 😊`;
 
     return (
       <>
-          <h1 className="word">
-            {
-              this.state.data
-            }
-          </h1>
-          <textarea onChange={this.textareaText} className={textareaClass} placeholder={placeholder} />
-          <span className={rangeSpanClass}>{(1000 / this.state.speed).toFixed(2)}  с/сек</span>
-          <input type="range" className={rangeClass} onChange={this.updateSpeed} defaultValue={250} min={100} max={500} />
-          <div className="buttons" style={buttonsMargin}>
-            {!this.state.hide ? (
-              <button className={"button"} onClick={this.start}>Старт</button>
-            ) : (
-              <button className="button" onClick={this.pause}>Пауза</button>
-            )}
-            <button className="button" onClick={this.restart}>Рестарт</button>
-          </div>
+        {<h1 className="word">{this.state.data}</h1>}
+        <textarea onChange={this.textareaText} className={textareaClass} placeholder={placeholder} />
+        <span className={rangeSpanClass}>{(1000 / this.state.speed).toFixed(2)}  с/сек</span>
+        <input type="range" className={rangeClass} onChange={this.updateSpeed} defaultValue={250} min={100} max={500} />
+        <div className="buttons" style={buttonsMargin}>
+          {!this.state.hide ? (
+            <button className={"button"} onClick={this.start}>Старт</button>
+          ) : (
+            <button className="button" onClick={this.pause}>Пауза</button>
+          )}
+          <button className="button" onClick={this.restart}>Рестарт</button>
+        </div>
       </>
     )
   }

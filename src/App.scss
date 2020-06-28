@@ -194,3 +194,37 @@ background-color: rgba(255, 255, 255, .4);
 .hide {
   display: none;
 }
+
+@media (max-width: 680px) {
+  .word {
+    font-size: 50px;
+    margin-top: 120px;
+  }
+
+  .range-span {
+    width: 250px;
+    font-size: 20px;
+    height: 50px;
+  }
+
+  .range {
+    width: 250px;
+  }
+
+  .textarea {
+    height: 150px;
+  }
+
+  .button {
+    width: 120px;
+    margin: 0;
+    font-size: 12px;
+    padding: 15px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .word {
+    font-size: 36px;
+  }
+}
