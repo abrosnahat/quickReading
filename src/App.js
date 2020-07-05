@@ -70,12 +70,12 @@ class App extends React.Component {
       hide: this.state.hide 
     });
 
-    const buttonsMargin = this.state.hide ? {marginTop: '497px'} : null;
+    const buttonsMargin = this.state.hide ? {marginTop: '515px'} : null;
     const placeholder = `Привет! Если скопируешь и вставишь сюда текст, то обретешь способность быстро читать 😊`;
 
     return (
       <>
-        {<h1 className="word">{this.state.data}</h1>}
+        <h1 className="word">{this.state.data}</h1>
         <textarea onChange={this.textareaText} className={textareaClass} placeholder={placeholder} />
         <span className={rangeSpanClass}>{(1000 / this.state.speed).toFixed(2)}  с/сек</span>
         <input type="range" className={rangeClass} onChange={this.updateSpeed} defaultValue={250} min={100} max={500} />
