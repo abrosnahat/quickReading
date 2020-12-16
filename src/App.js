@@ -1,13 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
 
+
 import './App.scss';
 
-let text = ["Привет!", "Если", "скопируешь", "и", "вставишь", "сюда", "текст,", "то", "обретешь", "способность", "быстро", "читать", "😊"];
+let text = ["Hello!", "If", "you", "copy", "and", "paste", "the", "text", "here", "you", "will", "gain", "the", "ability", "to", "read",  "quickly", "😊"];
 let i = 0;
 
 class App extends React.Component {
-  state = { data: 'Вставьте текст', hide: false, speed: 250 };
+  state = { data: 'Insert text', hide: false, speed: 250 };
 
   textareaText = (e) => text = e.target.value.split(' ');
 
@@ -23,7 +24,7 @@ class App extends React.Component {
         0
       );
     } else {
-      this.setState({ data: 'Нужно вставить текст', hide: false })
+      this.setState({ data: 'Need to insert text', hide: false })
     }
     
   }
@@ -70,22 +71,24 @@ class App extends React.Component {
       hide: this.state.hide 
     });
 
-    const buttonsMargin = this.state.hide ? {marginTop: '515px'} : null;
-    const placeholder = `Привет! Если скопируешь и вставишь сюда текст, то обретешь способность быстро читать 😊`;
+    const buttonsMargin = this.state.hide ? {marginTop: '345px'} : null;
+    const placeholder = `Hello! If you copy and paste the text here, you will gain the ability to read quickly 😊`;
 
     return (
       <>
-        <h1 className="word">{this.state.data}</h1>
+        <div className="word">
+            {this.state.data}
+        </div>
         <textarea onChange={this.textareaText} className={textareaClass} placeholder={placeholder} />
-        <span className={rangeSpanClass}>{(1000 / this.state.speed).toFixed(2)}  с/сек</span>
+        <span className={rangeSpanClass}>{(1000 / this.state.speed).toFixed(2)}  words/sec</span>
         <input type="range" className={rangeClass} onChange={this.updateSpeed} defaultValue={250} min={100} max={500} />
         <div className="buttons" style={buttonsMargin}>
           {!this.state.hide ? (
-            <button className={"button"} onClick={this.start}>Старт</button>
+            <button className={"button"} onClick={this.start}>Start</button>
           ) : (
-            <button className="button" onClick={this.pause}>Пауза</button>
+            <button className="button" onClick={this.pause}>Pause</button>
           )}
-          <button className="button" onClick={this.restart}>Рестарт</button>
+          <button className="button" onClick={this.restart}>Restart</button>
         </div>
       </>
     )
